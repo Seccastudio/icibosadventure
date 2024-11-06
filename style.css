@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin: 20px;
+    font-size: 32px;
+    color: #333;
+}
+
+.game {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background-color: #e0e0e0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-image: url('/bg.jpeg');
+}
+
+#dino {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+}
+
+.icibos {
+    width: 80px;
+    height: 80px;
+    transition: bottom 0.5s;
+}
+
+#cactus {
+    position: absolute;
+    bottom: 0;
+    right: -70px; /* Mulai di luar layar */
+    display: none; /* Sembunyikan kaktus sampai game dimulai */
+}
+
+.cewe {
+    width: 70px;
+    height: 70px;
+    
+}
+
+#startButton, #jumpButton {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+#startButton:hover, #jumpButton:hover {
+    background-color: #45a049;
+}
+
+#score {
+    font-size: 20px;
+    margin: 10px;
+    color: #333;
+}
+
+/* Animasi untuk lompat */
+@keyframes jump {
+    0% { bottom: 0; }
+    50% { bottom: 120px; } /* Ubah nilai ini untuk mengatur tinggi lompatan */
+    100% { bottom: 0; }
+}
+
+.jump {
+    animation: jump 0.5s; /* Ubah durasi lompatan di sini */
+}
+
+#cactus {
+    animation: cactusMove linear infinite;
+}
+
+@keyframes cactusMove {
+    0% { right: -70px; } /* Mulai dari luar layar */
+    100% { right: 100%; } /* Pergi ke sisi kanan */
+}
+
+.leaderboard {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.leaderboard h2 {
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+#leaderboardList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#leaderboardList li {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+#leaderboardList li:last-child {
+    border-bottom: none; /* Menghapus border untuk item terakhir */
+}
